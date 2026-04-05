@@ -1,0 +1,6 @@
+.env
+.codex
+*.db
+*.db.wal
+models/*.gguf
+data/

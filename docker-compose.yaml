@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  agent:
+    build: .
+    container_name: bluesky-agent
+    restart: unless-stopped
+    environment:
+      - BLUESKY_HANDLE=${BLUESKY_HANDLE}
+      - BLUESKY_PASSWORD=${BLUESKY_PASSWORD}
+      - DATABASE_PATH=/app/data/agent.db
+      - MODEL_PATH=/app/models/nomic-embed-text.Q4_K_M.gguf
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+    volumes:
+      - agent-data:/app/data
+      - ./models:/app/models:ro
+    networks:
+      - agent-net
+
+networks:
+  agent-net:
+    driver: bridge
+
+volumes:
+  agent-data:
