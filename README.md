@@ -1,5 +1,7 @@
 # Mini Bluesky Agent
 
+> Principle code in place: Not yet tested
+
 An autonomous Bluesky agent with vector memory, signal-based relationship tracking, and configurable personality. Built in Go with DuckDB for storage and llama.cpp for embeddings.
 
 ## What It Does
